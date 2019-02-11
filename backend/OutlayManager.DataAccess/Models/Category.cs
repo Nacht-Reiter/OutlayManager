@@ -10,9 +10,15 @@ namespace OutlayManager.DataAccess.Models
         String Name { get; set; }
         String ColorHex { get; set; }
 
-        [ForeignKey("UserId")]
-        public virtual User User { get; set; }
-        public int? UserId { get; set; }
+        [ForeignKey("AccountId")]
+        public virtual User Account { get; set; }
+        public int? AccountId { get; set; }
 
+        public IEnumerable<Transaction> Transactions { get; set; }
+
+        public Category()
+        {
+            Transactions = new List<Transaction>();
+        }
     }
 }
