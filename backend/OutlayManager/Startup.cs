@@ -10,6 +10,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using OutlayManager.BusinessLogic;
+using OutlayManager.Common;
+using OutlayManager.DataAccess;
 
 namespace OutlayManager
 {
@@ -26,6 +29,10 @@ namespace OutlayManager
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            DataAccessDI.ConfigureServices(services, Configuration);
+            BusinessLogicDI.ConfigureServices(services, Configuration);
+            CommonDI.ConfigureServices(services, Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,6 +46,10 @@ namespace OutlayManager
             {
                 app.UseHsts();
             }
+
+            DataAccessDI.ConfigureMiddleware(app);
+            BusinessLogicDI.ConfigureMiddleware(app);
+            CommonDI.ConfigureMiddleware(app);
 
             app.UseHttpsRedirection();
             app.UseMvc();
