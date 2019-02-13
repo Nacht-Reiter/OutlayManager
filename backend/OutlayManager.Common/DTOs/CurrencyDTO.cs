@@ -1,9 +1,10 @@
 ﻿using System;
 
-namespace OutlayManager.DataAccess.Models
+namespace OutlayManager.Common.DTOs
 {
-    public class Currency : Model
+    public class CurrencyDTO
     {
+        int Id { get; set; }
         String Name { get; set; }
         String Symbol { get; set; }
     }
