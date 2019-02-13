@@ -1,8 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OutlayManager.DataAccess.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace OutlayManager.DataAccess.Repository
 {
