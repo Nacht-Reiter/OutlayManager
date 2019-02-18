@@ -3,9 +3,8 @@ using System.Collections.Generic;
 
 namespace OutlayManager.Common.DTOs
 {
-    public class CategoryDTO
+    public class CategoryDTO : BasicDTO
     {
-        int Id { get; set; }
         String Name { get; set; }
         String ColorHex { get; set; }
         public UserDTO Account { get; set; }

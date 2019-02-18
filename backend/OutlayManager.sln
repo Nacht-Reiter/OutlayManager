@@ -6,10 +6,17 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OutlayManager", "OutlayManager\OutlayManager.csproj", "{E52EF9AE-F1E8-4EAB-9BCB-F221EBF22F1D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OutlayManager.Common", "OutlayManager.Common\OutlayManager.Common.csproj", "{B28E06DD-4C87-420D-A650-6F9A2F11C252}"
+	ProjectSection(ProjectDependencies) = postProject
+		{47C553FF-4D1C-40FF-80D7-84192CD5BE62} = {47C553FF-4D1C-40FF-80D7-84192CD5BE62}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutlayManager.BusinessLogic", "OutlayManager.BusinessLogic\OutlayManager.BusinessLogic.csproj", "{83B722DE-4C9F-4EC6-8365-4531ACDD39F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OutlayManager.BusinessLogic", "OutlayManager.BusinessLogic\OutlayManager.BusinessLogic.csproj", "{83B722DE-4C9F-4EC6-8365-4531ACDD39F5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B28E06DD-4C87-420D-A650-6F9A2F11C252} = {B28E06DD-4C87-420D-A650-6F9A2F11C252}
+		{47C553FF-4D1C-40FF-80D7-84192CD5BE62} = {47C553FF-4D1C-40FF-80D7-84192CD5BE62}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutlayManager.DataAccess", "OutlayManager.DataAccess\OutlayManager.DataAccess.csproj", "{47C553FF-4D1C-40FF-80D7-84192CD5BE62}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OutlayManager.DataAccess", "OutlayManager.DataAccess\OutlayManager.DataAccess.csproj", "{47C553FF-4D1C-40FF-80D7-84192CD5BE62}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -2,9 +2,8 @@
 
 namespace OutlayManager.Common.DTOs
 {
-    public class CurrencyDTO
+    public class CurrencyDTO : BasicDTO
     {
-        int Id { get; set; }
         String Name { get; set; }
         String Symbol { get; set; }
     }

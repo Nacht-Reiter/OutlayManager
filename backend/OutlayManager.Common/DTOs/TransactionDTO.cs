@@ -2,9 +2,8 @@
 
 namespace OutlayManager.Common.DTOs
 {
-    public class TransactionDTO
+    public class TransactionDTO : BasicDTO
     {
-        int Id { get; set; }
         public DateTime Time { get; set; }
         public decimal Value { get; set; }
         public bool IsIncome { get; set; }

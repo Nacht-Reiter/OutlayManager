@@ -2,9 +2,8 @@
 
 namespace OutlayManager.Common.DTOs
 {
-    public class AccountDTO
+    public class AccountDTO : BasicDTO
     {
-        int Id { get; set; }
         public decimal Balance { get; set; }
         public UserDTO User { get; set; }
         public CurrencyDTO Currency { get; set; }
