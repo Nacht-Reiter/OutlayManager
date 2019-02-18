@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using OutlayManager.BusinessLogic.Interfaces;
+using OutlayManager.Common.DTOs;
 using OutlayManager.DataAccess.Models;
 using OutlayManager.DataAccess.Repository;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OutlayManager.BusinessLogic.Services
 {
-    public class CRUDService<TModel, TDTO> : ICRUDService<TModel, TDTO> where TModel : Model where TDTO : class
+    public class CRUDService<TModel, TDTO> : ICRUDService<TModel, TDTO> where TModel : Model where TDTO : BasicDTO
     {
         protected readonly IUnitOfWork uow;
         protected readonly IMapper mapper;
@@ -64,12 +65,14 @@ namespace OutlayManager.BusinessLogic.Services
             return null;
         }
 
-        public virtual async Task<TDTO> Update(TDTO item)
+        public virtual async Task<TDTO> UpdateAsync(int id, TDTO item)
         {
             if (uow != null)
             {
-                var items = uow.Repository<TModel>().Update(mapper.Map<TModel>(item));
-                return mapper.Map<TDTO>(items);
+                item.Id = id;
+                var result = uow.Repository<TModel>().Update(mapper.Map<TModel>(item));
+                await uow.SaveAsync();
+                return mapper.Map<TDTO>(result);
             }
             return null;
         }
