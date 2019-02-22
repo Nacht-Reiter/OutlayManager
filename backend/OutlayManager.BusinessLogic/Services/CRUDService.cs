@@ -24,9 +24,12 @@ namespace OutlayManager.BusinessLogic.Services
         {
             if (uow != null)
             {
-                await uow.Repository<TModel>().CreateAsync(mapper.Map<TModel>(item));
-                await uow.SaveAsync();
-                return true;
+                var result = await uow.Repository<TModel>().CreateAsync(mapper.Map<TModel>(item));
+                if (result != null)
+                {
+                    await uow.SaveAsync();
+                    return true;
+                }
             }
             return false;
         }
@@ -35,8 +38,13 @@ namespace OutlayManager.BusinessLogic.Services
         {
             if (uow != null)
             {
-                await uow.Repository<TModel>().DeleteAsync(id);
-                return true;
+                var result = await uow.Repository<TModel>().DeleteAsync(id);
+                if (result != null)
+                {
+                    await uow.SaveAsync();
+                    return true;
+                }
+                
             }
             return false;
         }
@@ -72,8 +80,11 @@ namespace OutlayManager.BusinessLogic.Services
             {
                 item.Id = id;
                 var result = uow.Repository<TModel>().Update(mapper.Map<TModel>(item));
-                await uow.SaveAsync();
-                return mapper.Map<TDTO>(result);
+                if(result != null)
+                {
+                    await uow.SaveAsync();
+                    return mapper.Map<TDTO>(result);
+                }
             }
             return null;
         }
