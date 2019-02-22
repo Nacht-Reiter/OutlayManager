@@ -25,6 +25,7 @@ namespace OutlayManager.BusinessLogic.Services
             if (uow != null)
             {
                 await uow.Repository<TModel>().CreateAsync(mapper.Map<TModel>(item));
+                await uow.SaveAsync();
                 return true;
             }
             return false;
