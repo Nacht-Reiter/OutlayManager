@@ -15,8 +15,8 @@ namespace OutlayManager.DataAccess.Models
         public virtual Currency Currency { get; set; }
         public int? CurrencyId { get; set; }
 
-        public IEnumerable<Category> Categories { get; set; }
-        public IEnumerable<Transaction> Transactions { get; set; }
+        public virtual IEnumerable<Category> Categories { get; set; }
+        public virtual IEnumerable<Transaction> Transactions { get; set; }
 
 
         public Account()

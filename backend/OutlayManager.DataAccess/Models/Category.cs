@@ -13,7 +13,7 @@ namespace OutlayManager.DataAccess.Models
         public virtual User Account { get; set; }
         public int? AccountId { get; set; }
 
-        public IEnumerable<Transaction> Transactions { get; set; }
+        public virtual IEnumerable<Transaction> Transactions { get; set; }
 
         public Category()
         {

@@ -19,6 +19,7 @@ namespace OutlayManager.DataAccess
                 options.UseSqlServer(connectionStr);
             });
             services.AddScoped(typeof(DbContext), typeof(DataContext));
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
         }
 
         public static void ConfigureMiddleware(this IApplicationBuilder app)

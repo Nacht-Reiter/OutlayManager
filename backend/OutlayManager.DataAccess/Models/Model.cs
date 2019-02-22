@@ -1,8 +1,10 @@
 ﻿
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace OutlayManager.DataAccess.Models
 {
     public class Model
     {
-        int Id { get; set; }
+       public int Id { get; set; }
     }
 }
