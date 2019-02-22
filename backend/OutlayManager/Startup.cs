@@ -51,7 +51,7 @@ namespace OutlayManager
             BusinessLogicDI.ConfigureMiddleware(app);
             CommonDI.ConfigureMiddleware(app);
 
-            app.UseHttpsRedirection();
+
             app.UseMvc();
         }
     }
